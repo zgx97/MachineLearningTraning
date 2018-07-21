@@ -1,0 +1,22 @@
+完成情况：
+    1. HMM 
+    2. FMM/BMM/BM/Trie+FMM/DP
+    3. MEMM （未完成，只看完了最大熵模型概念）
+
+环境：
+    Ubuntu 18.10
+    Python3
+
+数据集：
+    sighan Bakeoff 2005 (人民日报数据集、sougo数据集未使用) —— msr
+
+测试内容：
+    1. 测试 预测消耗时间
+        1.1 HMM生成时间不计算内，HMM参数将以json格式保存至本地
+        1.2 Trie树生成时间不计算在内，先生成Trie树然后再测试Trie+FMM算法
+    2. 测试 模型预测准确率
+
+测试结果：
+    NLP_HMM             ： 详细测试信息在目录下的"HMM代码调整记录"文件中
+    NLP_MaximumMatching ： 详细测试信息在目录下的"模型测试信息.txt"文件中
+    

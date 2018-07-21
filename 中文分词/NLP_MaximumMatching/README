@@ -1,0 +1,89 @@
+====================================================================================================================================
+FMM 测试 :
+    === SUMMARY:
+    === TOTAL INSERTIONS:	5547
+    === TOTAL DELETIONS:	383
+    === TOTAL SUBSTITUTIONS:	4740
+    === TOTAL NCHANGE:	10670
+    === TOTAL TRUE WORD COUNT:	106873
+    === TOTAL TEST WORD COUNT:	112037
+    === TOTAL TRUE WORDS RECALL:	0.952
+    === TOTAL TEST WORDS PRECISION:	0.908
+    === F MEASURE:	0.930
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.024
+    === IV Recall Rate:	0.977
+    ###	./outfile.txt	5547	383	4740	10670	106873	112037	0.952	0.908	0.930	0.026	0.024	0.977
+
+====================================================================================================================================
+BMM 测试：
+    === SUMMARY:
+    === TOTAL INSERTIONS:	5547
+    === TOTAL DELETIONS:	383
+    === TOTAL SUBSTITUTIONS:	4740
+    === TOTAL NCHANGE:	10670
+    === TOTAL TRUE WORD COUNT:	106873
+    === TOTAL TEST WORD COUNT:	112037
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.952 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.908 
+    ===  F  MEASURE:  0.930 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.024
+    === IV Recall Rate:	0.977
+    ###	./outfile.txt	5547	383	4740	10670	106873	112037	0.952	0.908	0.930	0.026	0.024	0.977
+
+
+====================================================================================================================================
+BM 测试：
+    === SUMMARY:
+    === TOTAL INSERTIONS:	5470
+    === TOTAL DELETIONS:	384
+    === TOTAL SUBSTITUTIONS:	4657
+    === TOTAL NCHANGE:	10511
+    === TOTAL TRUE WORD COUNT:	106873
+    === TOTAL TEST WORD COUNT:	111959
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.953 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.910 
+    ===  F  MEASURE:  0.931 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.024
+    === IV Recall Rate:	0.978
+    ###	./outfile.txt	5470	384	4657	10511	106873	111959	0.953	0.910	0.931	0.026	0.024	0.978
+
+
+====================================================================================================================================
+Trie + FMM 测试:
+    === SUMMARY:
+    === TOTAL INSERTIONS:	5539
+    === TOTAL DELETIONS:	379
+    === TOTAL SUBSTITUTIONS:	4541
+    === TOTAL NCHANGE:	10459
+    === TOTAL TRUE WORD COUNT:	106873
+    === TOTAL TEST WORD COUNT:	112033
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.954 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.910 
+    ===  F  MEASURE:  0.931 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.025
+    === IV Recall Rate:	0.979
+    ###	./outfile.txt	5539	379	4541	10459	106873	112033	0.954	0.910	0.931	0.026	0.025	0.979
+
+
+====================================================================================================================================
+words_freq_DP 测试：
+    === SUMMARY:
+    === TOTAL INSERTIONS:	11718
+    === TOTAL DELETIONS:	6393
+    === TOTAL SUBSTITUTIONS:	15470
+    === TOTAL NCHANGE:	33581
+    === TOTAL TRUE WORD COUNT:	106873
+    === TOTAL TEST WORD COUNT:	112198
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.795 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.758 
+    ===  F  MEASURE:  0.776 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.184
+    === IV Recall Rate:	0.812
+    ###	./outfile.txt	11718	6393	15470	33581	106873	112198	0.795	0.758	0.776	0.026	0.184	0.812
+
+====================================================================================================================================

@@ -1,0 +1,168 @@
+Target:
+    1. 记录代码调整位置
+    2. 尝试去分析为何调整代码后HMM预测准确率会提升
+
+
+Record:
+说明：以下模型优劣对比均对照 original 得到的结果
+
+================================================================================================================================================================
+
+一、固定 EPS & ext，调整 HMM参数概率分布位置
+1.
+    召回率77.2% * original
+    准确率74.6% * original
+    HMM.get_frequency()调整：
+        EPS = 0.001
+        ext = 1000.0
+        1. trans_mat : None
+        2. obser_mat : None 
+        3. init_vect : None 
+
+2.
+    召回率77.2% 
+    准确率74.6% 
+    HMM.get_frequency()调整：
+        EPS = 0.001
+        ext = 1000.0
+        1. trans_mat : None
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : None 
+
+3.
+    召回率78.2%  * up
+    准确率77.0%  * up
+    HMM.get_frequency()调整：
+        EPS = 0.001
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+4. 
+    召回率78.1%  * up
+    准确率74.5%  * down
+    HMM.get_frequency()调整：
+        EPS = 0.001
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] * ext) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+Note：看起来并没有特别显著的效果
+
+================================================================================================================================================================
+
+二、调整 EPS & ext，固定 HMM参数概率分布计算
+选择第一个实验中效果相对较好的
+
+1. 
+    召回率78.2% * original
+    准确率77.0% * original
+    HMM调整：
+        EPS = 0.001     <
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+2. 
+    召回率75.2% * down
+    准确率74.8% * down
+    HMM调整：
+        EPS = 0.01      <
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+3.  
+    召回率69.2% * down
+    准确率70.2% * down
+    HMM调整：
+        EPS = 0.1       <
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+    
+
+4.  
+    召回率79.7% * up
+    准确率77.7% * up
+    HMM调整：
+        EPS = 0.0       <
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+5. 
+    召回率79.4% * up
+    准确率78.1% * up
+    HMM调整：
+        EPS = 0.0001    <
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+6. 
+    召回率79.9% * up
+    准确率78.6% * up
+    HMM调整：
+        EPS = 0.00001   <
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+7. 
+    召回率80.2% * up
+    准确率78.9% * up
+    HMM调整：
+        EPS = 0.000001  <
+        ext = 1000.0
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+8. 
+    召回率80.2% * up
+    准确率78.9% * up
+    HMM调整：
+        EPS = 0.000001  
+        ext = 100.0 < 调整ext来间接缩小EPS
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+9. 
+    召回率80.0% * up
+    准确率78.4% * up
+    HMM调整：
+        EPS = 0.000001
+        ext = 10.0  < 调整ext来间接缩小EPS
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+10. 
+    召回率77.9% * down
+    准确率78.7% * up
+    HMM调整：
+        EPS = 0.000005  <
+        ext = 1000.0 
+        1. trans_mat : trans_mat[key1][key2] = float(self.trans_mat[key1][key2] * ext) / self.state_count[key1]
+        2. obser_mat : obser_mat[key1][key2] = float(self.obser_mat[key1][key2] + 1) / self.state_count[key1]
+        3. init_vect : init_vect[key] = float(self.init_vect[key] * ext) / self.state_count[key]
+
+================================================================================================================================================================
+
+总结：
+    1. 调整这些数值并没有对HMM预测准确性产生多大的影响。
+    2. 调整数值会影响viterbi算法中计算Xi[t][i]
+
+疑惑：
+    1. 为什么模型准确率这么低？
+    2. 到底那个地方会对模型准确率产生重大影响？

@@ -1,0 +1,70 @@
+===================================================================================
+
+模型预测花费时间：
+
+[ FMM_test ] method, time: 0.469277
+[ BMM_test ] method, time: 0.49298999999999993
+[ BM_test ] method, time: 0.8173869999999999
+[ Trie_FMM_test ] method, time: 0.38093999999999983
+[ HMM _test] method, time:  48.347665000000006
+[ Words_Freq_DP_test(_OFF_) ] method, time: None
+
+===================================================================================
+
+模型预测准确率:
+
+[ FMM_test ]
+    === SUMMARY:
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.952 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.908 
+    ===  F  MEASURE:  0.930 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.024
+    === IV Recall Rate:	0.977
+
+[ BMM_test ]
+    === SUMMARY:
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.952 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.908 
+    ===  F  MEASURE:  0.930 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.024
+    === IV Recall Rate:	0.977
+
+[ BM_test ] method, time: 0.8173869999999999
+    === SUMMARY:
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.953 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.910 
+    ===  F  MEASURE:  0.931 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.024
+    === IV Recall Rate:	0.978
+
+[ Trie_FMM_test ] method, time: 0.38093999999999983
+    === SUMMARY:
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.954 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.910 
+    ===  F  MEASURE:  0.931 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.025
+    === IV Recall Rate:	0.979
+
+[ HMM ] 
+    === SUMMARY:
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.802     
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.789  
+    ===  F  MEASURE:  0.795 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.400
+    === IV Recall Rate:	0.812
+
+[ Words_Freq_DP_test(_OFF_) ] method, time: None
+    === SUMMARY:
+    ===  TOTAL  TRUE  WORDS  RECALL:  0.795 
+    ===  TOTAL  TEST  WORDS  PRECISION:  0.758 
+    ===  F  MEASURE:  0.776 
+    === OOV Rate:	0.026
+    === OOV Recall Rate:	0.184
+    === IV Recall Rate:	0.812
+
+===================================================================================
